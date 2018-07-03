@@ -3,15 +3,17 @@ import React, {Component} from 'react';
 class Box extends Component {
     render () {
 
-        return (
-            <form> 
-                <label>
-                    Name:
-                    <input type="text" name="name" />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        )
+        if(this.props.element){
+            return (
+                <form> 
+                    <label>
+                        Name:
+                        <input type="text" name="name" />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            )
+        }   else {return(<p></p>)}
     }
 }
 
@@ -25,30 +27,30 @@ class Comment extends Component {
     }
 
     toggle = () => {
-        // let unvisible = !this.state.visible;
-        // this.setState({
-        //     visible: unvisible
-        // })
+        let unvisible = !this.state.visible;
+        this.setState({
+            visible: unvisible
+        })
         
-        // if(this.state.visible) {
-            return(
-            <form> 
-                <label>
-                    Name:
-                    <input type="text" name="name" />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-            )
-        // }
+        // // if(this.state.visible) {
+        //     return(
+        //     <form> 
+        //         <label>
+        //             Name:
+        //             <input type="text" name="name" />
+        //         </label>
+        //         <input type="submit" value="Submit" />
+        //     </form>
+        //     )
+        // // }
     }
 
     
 
     render() {
         return (
-            <a className="article-link" onClick={this.toggle}>
-            <i className="fa fa-comments-o"></i>
+            <a className="article-link" >
+            <i className="fa fa-comments-o" onClick={this.toggle}></i>
             <span className="article-link-text">Comments</span>
             {/* <form> 
                 <label>
@@ -57,7 +59,7 @@ class Comment extends Component {
                 </label>
                 <input type="submit" value="Submit" />
             </form> */}
-            <Box />
+            <Box element={this.state.visible} />
           </a>
         )
     }
