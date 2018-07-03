@@ -6,7 +6,7 @@ import IndianaHobbits from './IndianaHobbits';
 
 class Baits extends Component {
     render(){
-        return(jQuery.parseHTML(this.props.baits.name))
+        return(this.props.baits.name)
     }
 }
 
