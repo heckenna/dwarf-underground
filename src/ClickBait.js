@@ -7,7 +7,7 @@ import IndianaHobbits from './IndianaHobbits';
 
 class Baits extends Component{
     render(){
-        return(<li>{this.props.element.name}</li>)
+        return(<div>{this.props.element.name}</div>)
     }
 }
 
@@ -43,9 +43,9 @@ class ClickBait extends Component {
         <UnderMountain />
         <MineGold />
         <IndianaHobbits /> */}
-        <ul>
+        
         {this.state.baits.map(currentElement => <Baits element={currentElement} />)}
-        </ul>    
+           
             </div>
         
         )
